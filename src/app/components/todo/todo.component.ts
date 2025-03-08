@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { Todo } from '../../models/Todo';
 import { of } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-todo',
-  imports: [FormsModule],
+  imports: [FormsModule,NgClass],
   templateUrl: './todo.component.html',
-  styleUrl: './todo.component.css'
 })
 export class TodoComponent {
   todos!: Todo[];
