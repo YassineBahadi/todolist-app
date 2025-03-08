@@ -1,210 +1,32 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+.custom-checkbox {
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-body {
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+.custom-checkbox:hover {
+  border-color: #2563eb; /* Blue-600 */
 }
 
-/* Todo App Container */
-.todo-app {
-    max-width: 600px;
-    width: 100%;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    padding: 24px;
-    animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* App Title */
-.app-title {
-    font-size: 28px;
-    font-weight: 600;
-    color: #333;
-    text-align: center;
-    margin-bottom: 24px;
-    position: relative;
-}
-
-.app-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background: #007bff;
-    border-radius: 2px;
-}
-
-/* Todo Form */
-.todo-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 24px;
-}
-
-.todo-input {
-    flex: 1;
-    padding: 12px;
-    font-size: 16px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.todo-input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
-}
-
-.add-todo {
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    background: linear-gradient(135deg, #007bff, #0056b3);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.add-todo:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
-}
-
-.add-todo:active {
-    transform: translateY(0);
-}
-
-/* Todo List */
-.todo-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-/* Todo Item */
-.todo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    animation: slideIn 0.3s ease;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.todo:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Todo Checkbox */
-.todo-checkbox {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #007bff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.todo-checkbox .checkmark {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.todo.done .todo-checkbox {
-    background: #007bff;
-}
-
-.todo.done .checkmark {
-    opacity: 1;
-    color: #fff;
-}
-
-/* Todo Content */
 .todo-content {
-    flex: 1;
-    font-size: 16px;
-    color: #333;
-    cursor: pointer;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
+  transition: color 0.3s ease;
 }
 
-.todo.done .todo-content {
-    text-decoration: line-through;
-    color: #888;
+.todo-content:hover {
+  color: #1e40af; /* Blue-700 */
 }
 
-/* Delete Button */
-.delete-todo {
-    background: none;
-    border: none;
-    color: #ff4757;
-    font-size: 18px;
-    cursor: pointer;
-    transition: color 0.2s ease;
+/* Styles for completed todos */
+.completed-todo {
+  opacity: 0.75;
+  border-color: #34d399; /* Green-300 */
+  background-color: #f0fdf4; /* Light green background */
 }
 
-.delete-todo:hover {
-    color: #ff6b81;
+.completed-todo .todo-content {
+  text-decoration: line-through;
+  color: #6b7280; /* Gray-500 */
 }
 
-/* Animation for Todo Removal */
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-}
-
-.todo.removing {
-    animation: fadeOut 0.3s ease forwards;
+.completed-todo .custom-checkbox {
+  background: #34d399; /* Green-300 */
+  border-color: #34d399; /* Green-300 */
 }
