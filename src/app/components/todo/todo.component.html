@@ -1,0 +1,24 @@
+<div class="todo-app">
+    <h1 class="app-title">✨ Todo List</h1>
+    <form class="todo-form">
+        <input
+            type="text"
+            name="inputTodo"
+            placeholder="What needs to be done?"
+            class="todo-input"
+            [(ngModel)]="inputTodo"
+        />
+        <button class="add-todo" (click)="addTodo()">➕ Add Task</button>
+    </form>
+    <div class="todo-list">
+        @for (todo of todos; track $index) {
+            <div class="todo{{(todo.completed ? ' done' : '')}}" >
+                <div class="todo-checkbox" (click)="toggleDone($index)">
+                    <span class="checkmark">✔️</span>
+                </div>
+                <div class="todo-content" (click)="toggleDone($index)">{{todo.content}}</div>
+                <button class="delete-todo" (click)="deleteTodo($index)">🗑️</button>
+            </div>
+        }
+    </div>
+</div>
